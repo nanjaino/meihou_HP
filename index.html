@@ -19,16 +19,22 @@
         <div class="logo-icon">M</div>
         <span class="header__logo-text">明豊株式会社</span>
       </a>
-      <nav class="header__nav">
-        <ul class="header__nav-list">
-          <li><a href="#top">Top</a></li>
-          <li><a href="#business">Business</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#recruit">Recruit</a></li>
-          <li><a href="#access">Access</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+      <div class="header__actions-wrap">
+        <nav class="header__nav">
+          <ul class="header__nav-list">
+            <li><a href="#top">Top</a></li>
+            <li><a href="#business">Business</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#recruit">Recruit</a></li>
+            <li><a href="#access">Access</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <button class="menu-trigger" id="menu-open" aria-label="メニューを開く">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -245,6 +251,23 @@
 
     document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
 
+    // Overlay Menu Logic
+    const menuOpen = document.getElementById('menu-open');
+    const menuClose = document.getElementById('menu-close');
+    const menuOverlay = document.getElementById('menu-overlay');
+    const menuLinks = document.querySelectorAll('.menu-overlay__list a');
+
+    const toggleMenu = (isOpen) => {
+      menuOverlay.classList.toggle('is-active', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    };
+
+    menuOpen.addEventListener('click', () => toggleMenu(true));
+    menuClose.addEventListener('click', () => toggleMenu(false));
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => toggleMenu(false));
+    });
+
     // Smooth Scroll Offset
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
@@ -261,5 +284,40 @@
       });
     });
   </script>
+
+  <!-- ========== MENU OVERLAY ========== -->
+  <div class="menu-overlay" id="menu-overlay">
+    <button class="menu-overlay__close" id="menu-close" aria-label="メニューを閉じる">
+      <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <div class="menu-overlay__inner">
+      <nav class="menu-overlay__nav">
+        <ul class="menu-overlay__list">
+          <li><a href="#top">トップ <span class="arrow">→</span></a></li>
+          <li><a href="#business">精密寸法検査 <span class="arrow">→</span></a></li>
+          <li><a href="#business">入庫管理 <span class="arrow">→</span></a></li>
+          <li>
+            <a href="#recruit">
+              <div class="tag-row">
+                <span class="tag">正社員</span>
+                <span class="tag">新居浜市</span>
+              </div>
+              エンジニア <span class="arrow">→</span>
+            </a>
+          </li>
+          <li>
+            <a href="#recruit">
+              <div class="tag-row">
+                <span class="tag">アルバイト・パート</span>
+                <span class="tag">西条市</span>
+              </div>
+              部品入出庫スタッフ <span class="arrow">→</span>
+            </a>
+          </li>
+          <li><a href="privacy.html">プライバシーポリシー <span class="arrow">→</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
 </body>
 </html>
