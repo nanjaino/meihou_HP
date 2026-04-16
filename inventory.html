@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>入庫管理 採用情報 | 明豊株式会社</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Montserrat:wght@400;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    .recruit-detail-hero {
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #001a33 0%, #0d2137 100%);
+      position: relative;
+      overflow: hidden;
+      color: var(--color-white);
+      text-align: center;
+    }
+    .recruit-detail-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.05);
+      background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0);
+      background-size: 24px 24px;
+      pointer-events: none;
+    }
+    .recruit-detail-content {
+      max-width: 800px;
+      margin: 80px auto;
+      padding: 0 40px;
+    }
+    .back-nav {
+      position: fixed;
+      top: 120px;
+      left: 40px;
+      z-index: 100;
+    }
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      color: var(--color-primary);
+      background: var(--color-white);
+      padding: 12px 24px;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+    }
+    .btn-back:hover {
+      background: var(--color-accent);
+      color: var(--color-white);
+      transform: translateX(-5px);
+    }
+    @media (max-width: 768px) {
+      .back-nav {
+        position: static;
+        margin: 20px 40px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header is-scrolled">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">
+        <div class="logo-icon">M</div>
+        <span class="header__logo-text">明豊株式会社</span>
+      </a>
+    </div>
+  </header>
+
+  <div class="back-nav">
+    <a href="index.html#recruit" class="btn-back">← トップページに戻る</a>
+  </div>
+
+  <section class="recruit-detail-hero">
+    <div class="hero-text">
+      <span class="section-label" style="color: var(--color-accent);">Recruit / Inventory Management</span>
+      <h1 class="hero__title" style="font-size: clamp(2rem, 6vw, 4rem);">入庫管理</h1>
+      <p class="hero__lead">効率的な物流と徹底した管理で、製造の最前線を支える。</p>
+    </div>
+  </section>
+
+  <main class="recruit-detail-content">
+    <div class="section-title-wrap">
+      <h2 class="section-title">職種紹介</h2>
+      <p style="margin-top: 24px; font-size: 1.125rem; color: var(--color-text-muted);">
+        部品の入出庫から在庫管理、製造現場への供給フローを最適化します。
+        正確な管理によって製造現場の生産性を最大化させる、やりがいのある仕事です。
+      </p>
+    </div>
+    
+    <div style="margin-top: 60px; padding: 40px; background: var(--color-bg-light); border-left: 4px solid var(--color-accent);">
+      <h3 style="margin-bottom: 20px;">募集の背景</h3>
+      <p>
+        スムーズな製造工程を支えるための管理体制強化のため、新しいメンバーを募集しています。
+        詳細な要項については、現在準備中です。
+      </p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer-copyright">
+        &copy; 2026 Meiho Co., Ltd. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
