@@ -60,11 +60,26 @@
       <a href="index.html" class="header__logo">
         <span class="header__logo-text">株式会社明豊</span>
       </a>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       <nav class="header__nav">
         <ul class="header__nav-list">
           <li><a href="index.html#top">トップ</a></li>
-          <li><a href="index.html#jobs">募集職種</a></li>
-          <li><a href="index.html#company">会社概要</a></li>
+          <li><a href="index.html#business">事業内容</a></li>
+          <li><a href="index.html#about">会社概要</a></li>
+          <li><a href="index.html#recruit">採用情報</a></li>
+          <li><a href="index.html#contact">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <nav class="mobile-nav" id="mobile-nav">
+        <ul class="mobile-nav-list">
+          <li><a href="index.html#top">トップ</a></li>
+          <li><a href="index.html#business">事業内容</a></li>
+          <li><a href="index.html#about">会社概要</a></li>
+          <li><a href="index.html#recruit">採用情報</a></li>
           <li><a href="index.html#contact">お問い合わせ</a></li>
         </ul>
       </nav>
@@ -124,5 +139,20 @@
     </div>
   </footer>
 
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) header.classList.add('is-scrolled');
+      else header.classList.remove('is-scrolled');
+    });
+
+    const hamburger = document.getElementById('hamburger');
+    const body = document.body;
+    hamburger.addEventListener('click', () => body.classList.toggle('nav-open'));
+    document.querySelectorAll('.mobile-nav-list a').forEach(link => {
+      link.addEventListener('click', () => body.classList.remove('nav-open'));
+    });
+  </script>
 </body>
 </html>

@@ -19,8 +19,26 @@
         <div class="logo-icon">M</div>
         <span class="header__logo-text">株式会社明豊</span>
       </a>
+      <!-- Hamburger Icon -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <!-- PC Nav -->
       <nav class="header__nav">
         <ul class="header__nav-list">
+          <li><a href="#top">Top</a></li>
+          <li><a href="#business">Business</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#recruit">Recruit</a></li>
+          <li><a href="#access">Access</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <!-- Mobile Nav -->
+      <nav class="mobile-nav" id="mobile-nav">
+        <ul class="mobile-nav-list">
           <li><a href="#top">Top</a></li>
           <li><a href="#business">Business</a></li>
           <li><a href="#about">About</a></li>
@@ -247,7 +265,20 @@
 
     document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
 
+    // Mobile Menu Toggle Logic
+    const hamburger = document.getElementById('hamburger');
+    const body = document.body;
 
+    hamburger.addEventListener('click', () => {
+      body.classList.toggle('nav-open');
+    });
+
+    // Close menu when a link is clicked
+    document.querySelectorAll('.mobile-nav-list a').forEach(link => {
+      link.addEventListener('click', () => {
+        body.classList.remove('nav-open');
+      });
+    });
 
     // Smooth Scroll Offset
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

@@ -65,12 +65,26 @@
 </head>
 <body>
 
-  <header class="header is-scrolled">
+  <header class="header is-scrolled" id="header">
     <div class="header__inner">
       <a href="index.html" class="header__logo">
         <div class="logo-icon">M</div>
         <span class="header__logo-text">株式会社明豊</span>
       </a>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav class="mobile-nav" id="mobile-nav">
+        <ul class="mobile-nav-list">
+          <li><a href="index.html#top">トップ</a></li>
+          <li><a href="index.html#business">事業内容</a></li>
+          <li><a href="index.html#about">会社概要</a></li>
+          <li><a href="index.html#recruit">採用情報</a></li>
+          <li><a href="index.html#contact">お問い合わせ</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
@@ -162,5 +176,14 @@
     </div>
   </footer>
 
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const body = document.body;
+    hamburger.addEventListener('click', () => body.classList.toggle('nav-open'));
+    document.querySelectorAll('.mobile-nav-list a').forEach(link => {
+      link.addEventListener('click', () => body.classList.remove('nav-open'));
+    });
+  </script>
 </body>
 </html>
